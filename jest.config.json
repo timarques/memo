@@ -1,0 +1,13 @@
+{
+	"verbose": true,
+	"preset": "ts-jest",
+	"testMatch": ["**/tests/**/*.test.ts"],
+	"setupFiles": ["jest-date-mock"],
+	"collectCoverage": true,
+	"coverageThreshold": {
+		"global": {
+		  "lines": 90,
+		  "statements": 90
+		}
+	}
+}

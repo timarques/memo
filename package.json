@@ -1,0 +1,35 @@
+{
+	"name": "memoria",
+	"version": "1.0.0",
+	"description": "Caches function output from input signature",
+	"main": "dist/lib/memoria.js",
+	"types": "dist/lib/memoria.d.ts",
+	"scripts": {
+		"test": "jest",
+		"compile": "tsc"
+	},
+	"prepublish": "tsc",
+	"keywords": [
+		"memoria",
+		"memoize",
+		"function",
+		"utilities"
+	],
+	"author": {
+		"name": "Tiago Marques",
+		"email": "tyimaques@gmail.com"
+	},
+	"homepage": "https://github.com/timarques/memoizer#readme",
+	"repository": "https://github.com/timarques/memoizer",
+	"license": "MIT",
+	"devDependencies": {
+		"@types/jest": "^26.0.*",
+		"@typescript-eslint/eslint-plugin": "^4.6.0",
+		"eslint": "^7.12.*",
+		"eslint-plugin-import": "^2.22.1",
+		"jest": "^26.6.*",
+		"jest-date-mock": "^1.0.*",
+		"ts-jest": "^26.4.*",
+		"typescript": "^4.0.*"
+	}
+}
