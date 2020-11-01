@@ -1,7 +1,7 @@
 {
 	"name": "memoria",
 	"version": "1.0.0",
-	"description": "Caches function output from input signature",
+	"description": "Caches function output with separated cache for each input signature",
 	"main": "dist/lib/memoria.js",
 	"types": "dist/lib/memoria.d.ts",
 	"scripts": {
