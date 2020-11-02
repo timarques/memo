@@ -2,21 +2,21 @@ import Invocable from "./invocable";
 
 type Result<T> = Promise<T> | T;
 
-interface MemoriaCachedData<T> {
+interface MemoizeCachedData<T> {
 	result: Result<T>,
 	value?: T,
 	createdAt: number
 }
 
-interface MemoriaCache<T, TResult> {
+interface MemoizeCache<T, TResult> {
 	key: T,
-	data: MemoriaCachedData<TResult>,
+	data: MemoizeCachedData<TResult>,
 }
 
 type Callback<T extends unknown[], TResult> = (...args: T) => Result<TResult>;
 
-class Memoria<T extends unknown[], TResult> extends Invocable<T> {
-    private cache: MemoriaCache<T, TResult>[] = [];
+class Memoize<T extends unknown[], TResult> extends Invocable<T> {
+    private cache: MemoizeCache<T, TResult>[] = [];
 
 	private readonly callback: Callback<T, TResult>;
 
@@ -56,7 +56,7 @@ class Memoria<T extends unknown[], TResult> extends Invocable<T> {
 
 	protected create(args: T): Result<TResult> {
 		const result = this.callback(...args);
-		const data: MemoriaCachedData<TResult> = {
+		const data: MemoizeCachedData<TResult> = {
 			result,
 			createdAt: Date.now(),
 		};
@@ -74,7 +74,7 @@ class Memoria<T extends unknown[], TResult> extends Invocable<T> {
 		});
 	}
 
-	protected find(args: T): MemoriaCachedData<TResult> | undefined {
+	protected find(args: T): MemoizeCachedData<TResult> | undefined {
 		const position = this.findPosition(args);
 		const date = Date.now();
 		return (
@@ -94,5 +94,5 @@ class Memoria<T extends unknown[], TResult> extends Invocable<T> {
 	}
 }
 
-export { Memoria as default };
+export { Memoize as default };
 export type { Callback, Result };

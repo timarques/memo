@@ -1,9 +1,9 @@
 import { advanceBy } from "jest-date-mock";
-import Memoria from "../lib/memoria";
+import Memoize from "../lib/memoize";
 
 test("invoke", () => {
 	const callback = jest.fn((...args: number[]) => args.reduce((a, b) => a * b, 1));
-	const memoized = new Memoria(callback);
+	const memoized = new Memoize(callback);
 	expect(memoized(1)).toBe(1);
 	expect(callback).toBeCalledWith(1);
 	expect(memoized.has(1)).toBeTruthy();
@@ -17,7 +17,7 @@ test("invoke", () => {
 
 test("invoke with promises", async () => {
 	const callback = jest.fn((number: number) => Promise.resolve(number * number));
-	const memoized = new Memoria(callback);
+	const memoized = new Memoize(callback);
 	const result = memoized(1);
 	expect(result).toBeInstanceOf(Promise);
 	expect(await result).toBe(1);
@@ -28,7 +28,7 @@ test("invoke with promises", async () => {
 test("invoke with rejected promises", async () => {
 	expect.assertions(4);
 	const callback = jest.fn(() => Promise.reject(new Error()));
-	const memoized = new Memoria(callback);
+	const memoized = new Memoize(callback);
 	const promise = memoized();
 	expect(memoized.has()).toBeTruthy();
 	try {
@@ -41,7 +41,7 @@ test("invoke with rejected promises", async () => {
 });
 
 test("has", () => {
-	const memoized = new Memoria((number?: number) => number);
+	const memoized = new Memoize((number?: number) => number);
 	expect(memoized.has(1)).toBeFalsy();
 	memoized(1);
 	expect(memoized.has(1)).toBeTruthy();
@@ -49,7 +49,7 @@ test("has", () => {
 });
 
 test("remove", () => {
-	const memoized = new Memoria(() => undefined);
+	const memoized = new Memoize(() => undefined);
 	expect(memoized.remove()).toBeFalsy();
 	memoized();
 	expect(memoized.remove()).toBeTruthy();
@@ -57,7 +57,7 @@ test("remove", () => {
 });
 
 test("value", () => {
-	const memoized = new Memoria((number: number) => number);
+	const memoized = new Memoize((number: number) => number);
 	expect(memoized.value(1)).toBeUndefined();
 	memoized(1);
 	expect(memoized.value(1)).toBe(1);
@@ -65,14 +65,14 @@ test("value", () => {
 });
 
 test("value with promises", async () => {
-	const memoized = new Memoria((number: number) => Promise.resolve(number));
+	const memoized = new Memoize((number: number) => Promise.resolve(number));
 	await memoized(2);
 	expect(memoized.value(2)).toBe(2);
 	expect(memoized.value(1)).toBeUndefined();
 });
 
 test("clear", () => {
-	const memoized = new Memoria(() => undefined);
+	const memoized = new Memoize(() => undefined);
 	expect(memoized.has()).toBeFalsy();
 	memoized();
 	expect(memoized.has()).toBeTruthy();
@@ -81,7 +81,7 @@ test("clear", () => {
 });
 
 test("maxDuration option", () => {
-	const memoized = new Memoria(() => undefined, 20);
+	const memoized = new Memoize(() => undefined, 20);
 	memoized();
 	expect(memoized.has()).toBeTruthy();
 	advanceBy(20);

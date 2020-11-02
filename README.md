@@ -1,4 +1,4 @@
-# Memoria
+# Memoize
 Caches function output with separated cache for each input signature
 
 ## Table of Contents
@@ -9,15 +9,16 @@ Caches function output with separated cache for each input signature
 
 ## Installation
 
-<pre>npm i memoria</pre>
+```npm i @tyimarques/memoize```
 
 ## Usage
 ```js
-import Memoria from "memoria";
+import Memoize from "@tyimarques/memoize";
 const callback = () => true;
-const callbackMemoized = new Memoria(callback);
+const callbackMemoized = new Memoize(callback);
 callbackMemoized();
 callbackMemoized();//cached result
 ```
+
 ## License
 [MIT](license)

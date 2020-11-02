@@ -1,11 +1,11 @@
 {
-  "name": "@tyimarques/memoria",
+  "name": "@tyimarques/memoize",
   "version": "1.0.0",
   "description": "Caches function output with separated cache for each input signature",
-  "main": "dist/lib/memoria.js",
-  "types": "dist/lib/memoria.d.ts",
+  "main": "dist/memoize.js",
+  "types": "dist/memoize.d.ts",
   "files": [
-    "dist"
+    "dist/lib"
   ],
   "scripts": {
     "test": "jest",
@@ -14,16 +14,16 @@
   },
   "prepublish": "tsc",
   "keywords": [
-    "memoria",
-    "memoize",
+	"memoize",
+	"cache",
     "function",
     "utilities"
   ],
   "author": "Tiago Marques <tyimaques@gmail.com>",
-  "homepage": "https://github.com/timarques/memoria#readme",
+  "homepage": "https://github.com/timarques/memoize#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/timarques/memoria.git"
+    "url": "git+https://github.com/timarques/memoize.git"
   },
   "license": "MIT",
   "devDependencies": {
@@ -37,11 +37,7 @@
     "typescript": "^4.0.*"
   },
   "bugs": {
-    "url": "https://github.com/timarques/memoria/issues"
-  },
-  "directories": {
-    "lib": "lib",
-    "test": "tests"
+    "url": "https://github.com/timarques/memoize/issues"
   },
   "dependencies": {}
 }
