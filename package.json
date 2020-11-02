@@ -19,8 +19,8 @@
 		"name": "Tiago Marques",
 		"email": "tyimaques@gmail.com"
 	},
-	"homepage": "https://github.com/timarques/memoizer#readme",
-	"repository": "https://github.com/timarques/memoizer",
+	"homepage": "https://github.com/timarques/memoria#readme",
+	"repository": "https://github.com/timarques/memoria",
 	"license": "MIT",
 	"devDependencies": {
 		"@types/jest": "^26.0.*",
