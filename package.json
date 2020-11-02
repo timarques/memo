@@ -4,9 +4,11 @@
 	"description": "Caches function output with separated cache for each input signature",
 	"main": "dist/lib/memoria.js",
 	"types": "dist/lib/memoria.d.ts",
+	"files": ["dist"],
 	"scripts": {
 		"test": "jest",
-		"compile": "tsc"
+		"compile": "tsc",
+		"prepare": "npm run compile"
 	},
 	"prepublish": "tsc",
 	"keywords": [
