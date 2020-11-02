@@ -14,8 +14,8 @@
   },
   "prepublish": "tsc",
   "keywords": [
-	"memoize",
-	"cache",
+    "memoize",
+    "cache",
     "function",
     "utilities"
   ],
