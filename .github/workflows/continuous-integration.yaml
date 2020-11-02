@@ -9,8 +9,3 @@ jobs:
         with:
           node-version: '12.x'
       - run: npm install-test
-      - name: Release
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npx semantic-release --branches main
