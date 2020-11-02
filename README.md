@@ -1,5 +1,5 @@
 # Memoria
-Caches function output from input signature
+Caches function output with separated cache for each input signature
 
 ## Table of Contents
 
