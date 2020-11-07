@@ -1,11 +1,11 @@
 {
 	"name": "@tyimarques/memoize",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Caches function output with separated cache for each input signature",
-	"main": "memoize.js",
-	"types": "memoize.d.ts",
+	"main": "dist/memoize.js",
+	"types": "dist/memoize.d.ts",
 	"files": [
-		"dist/lib/*"
+		"dist"
 	],
 	"scripts": {
 		"test": "jest",

@@ -18,14 +18,12 @@
 		"noImplicitReturns": true,
 		"noFallthroughCasesInSwitch": true,
 		"outDir": "dist",
-		"rootDirs": [
-			"lib", 
-			"tests"
-		],
+		"rootDir": "lib",
 		"inlineSourceMap": true
 	},
 	"exclude": [
 		"node_modules", 
-		"dist"
+		"dist",
+		"tests"
 	]
 }
