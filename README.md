@@ -1,4 +1,4 @@
-# Memoize
+# memo
 Caches function output with separated cache for each input signature
 
 ## Table of Contents
@@ -9,15 +9,28 @@ Caches function output with separated cache for each input signature
 
 ## Installation
 
-```npm i @tyimarques/memoize```
+```npm i @tyimarques/memo```
 
 ## Usage
 ```js
-import Memoize from "@tyimarques/memoize";
+import memo from "@tyimarques/memo";
 const callback = () => true;
-const callbackMemoized = new Memoize(callback);
-callbackMemoized();
-callbackMemoized();//cached result
+const memoizedCallback = memo(callback);
+memoizedCallback() //not cached
+memoizedCallback() //cached
+
+const evenAnotherMemoizedCallback = memo(callback, { duration: 100 })
+evenAnotherMemoizedCallback() // not cached
+evenAnotherMemoizedCallback() // cached
+setTimeout(() => {
+    evenAnotherMemoizedCallback() // not cached
+}, 100)
+
+const anotherCallback = (first, second, thrid) => first + second + third
+const anotherMemoizedCallback = memo(anotherCallback)
+anotherMemoizedCallback(1, 2, 3) // 6, not cached
+anotherMemoizedCallback(1, 2, 3) // 6, cached
+anotherMemoizedCallback(2, 2, 3) // 7, not cached
 ```
 
 ## License
