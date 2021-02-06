@@ -1,6 +1,6 @@
 {
 	"name": "@tyimarques/memo",
-	"version": "1.1.1",
+	"version": "1.1.5",
 	"description": "Caches function output with separated cache for each input signature",
 	"main": "dist/memo.js",
 	"types": "dist/memo.d.ts",
@@ -37,6 +37,5 @@
 	},
 	"bugs": {
 		"url": "https://github.com/timarques/memo/issues"
-	},
-	"dependencies": {}
+	}
 }
